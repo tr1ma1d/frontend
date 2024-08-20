@@ -2,18 +2,21 @@
 'use client'
 
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 
 export default function Home() {
-  const {push} = useRouter();
+  const router = useRouter();
+
   useEffect(() => {
-    push('/auth/sign-in');
-  }, [push]);
+    router.push('/auth/sign-in');
+    // router.push('');
+  }, [router]);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
+       
     </main>
   );
 }

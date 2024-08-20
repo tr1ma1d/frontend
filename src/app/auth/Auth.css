@@ -1,0 +1,84 @@
+:root {
+    --main-background-color: rgba(124, 118, 162, 0.5); /* Прозрачность добавлена к цвету */
+    --main-back-gradient: radial-gradient(circle, rgba(124, 118, 162, 1) 0%, rgba(199, 199, 251, 1) 70%, rgba(208, 209, 209, 1) 100%);
+    --background-image: url('/images.jpg');
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    /* background: var(--main-back-gradient); */
+    background: var(--background-image);
+    background-size: cover;
+}
+
+.auth-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    background-color: var(--main-background-color); /* Прозрачный фон */
+    backdrop-filter: blur(15px); /* Эффект размытия заднего фона */
+    width: 50vh;
+    aspect-ratio: 1/1.1;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.title {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 400;
+    font-size: 28px;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.25em;
+    position: relative;
+}
+
+input,
+button {
+    width: 350px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0 1em;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+button {
+    background-color: blueviolet;
+    color: white; /* Ensure text color is visible against the background */
+    cursor: pointer;
+    border: none; /* Remove default border */
+    border-radius: 10px;
+    padding: 0 1em;
+    height: 50px;
+    width: 100%;
+    max-width: 350px; /* Adjust as needed */
+    box-sizing: border-box; /* Ensure padding and border are included in the width/height */
+    position: absolute; /* Change to relative or remove if not needed */
+    transition: background-color 0.5s; 
+    bottom: 5vh;/* Transition background-color */
+}
+
+button:hover {
+    background-color: rgb(95, 38, 148); /* Color change on hover */
+}

@@ -2,6 +2,11 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import { Montserrat } from "next/font/google";
+
+
+
+import './Auth.css';
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
     const router = useRouter();
@@ -16,8 +21,8 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     }, [router]);
 
     return (
-        <div>
-            <div>{children}</div>
+        <div className ="auth-container">
+            {children}
         </div>
     );
 }
