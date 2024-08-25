@@ -11,7 +11,7 @@ export default function Page() {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
-    
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
     const router = useRouter();
 
@@ -21,13 +21,15 @@ export default function Page() {
         try {
             console.log("Calling loginUser");
             await AuthApi.registerUser(username, password, email);
-            router.push('/auth/sign-up');
+            router.push('/messanger/users');
         } catch (err) {
             setError('Login failed');
             alert('Login failed');
         }
     };
-    
+    const showPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPasswordVisible(e.target.checked);
+    }
 
 
     return (
@@ -38,21 +40,34 @@ export default function Page() {
                 <input
                     type="username"
                     placeholder="Username"
+                    className='textbox'
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
-                    type="password"
+                    type={passwordVisible ? 'password' : 'text'}
                     placeholder="Password"
+                    className='textbox'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                <label htmlFor="show-password">
+                    <input
+                        type="checkbox"
+                        className="password-check"  // Corrected className
+                        id="show-password"
+                        onChange={showPassword}  // Changed to onChange
+                    />
+                    <span>Show Password</span>
+                </label>
                 <input 
                     type="email" 
                     placeholder="Email"
+                    className='textbox'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
+                
                 <button type="submit">Register</button>
                 {error && <p>{error}</p>}
             </form>
